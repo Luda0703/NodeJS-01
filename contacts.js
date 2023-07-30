@@ -22,7 +22,7 @@ const {nanoid} = require('nanoid');
       return null;
     }
     const [result] = contacts.splice(index, 1);
-    await fs.readFile(contactsPath, JSON.stringify(contacts, null, 2));
+    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return result;
     
   }
@@ -34,7 +34,7 @@ const {nanoid} = require('nanoid');
       ...data,
     }
     contacts.push(newContact);
-    await fs.readFile(contactsPath, JSON.stringify(contacts, null, 2));
+    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return newContact;
   }
 
